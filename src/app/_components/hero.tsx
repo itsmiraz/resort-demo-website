@@ -11,6 +11,7 @@ import {
 import { format } from "date-fns";
 import { ChevronDown, MinusIcon, Plus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -28,7 +29,7 @@ const Hero = () => {
         </p>
         <SearchFilter />
 
-        <div className="w-full z-10 h-full  bg-black/30 absolute top-0 left-0">
+        <div className="w-full z-10 h-full  bg-black/10 absolute top-0 left-0">
 
         </div>
       </div>
@@ -71,9 +72,10 @@ const SearchFilter = () => {
 
       {/* Main Buton */}
      <div className="col-span-2">
-     <Button variant={"primary"} className="w-full md:w-fit" size={"lg"}>
+    <Link href='#rooms'>
+    <Button variant={"primary"} className="w-full md:w-fit" size={"lg"}>
         Check Availability <Search />
-      </Button>
+      </Button></Link>
      </div>
     </div>
   );

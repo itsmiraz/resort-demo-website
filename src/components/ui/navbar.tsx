@@ -56,9 +56,10 @@ const NavBar = () => {
       </ul>
       <div className="relative z-50">
         <div className="flex items-center gap-x-4">
-          <Button className="md:block hidden" variant={"primary"}>
+        <Link href="#contact">
+        <Button className="md:block hidden" variant={"primary"}>
             Contact
-          </Button>
+          </Button></Link>
           <button
             className="md:hidden block"
             onClick={() => setIsOpen(!isOpen)}

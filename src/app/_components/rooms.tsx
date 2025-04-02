@@ -1,5 +1,6 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useState } from "react";
 import RoomImg1 from "@/assets/images/room1.png";
 import RoomImg2 from "@/assets/images/room2.webp";
 import RoomImg3 from "@/assets/images/room3.jpg";
@@ -11,6 +12,8 @@ import { ArrowRight, Star } from "lucide-react";
 import BedIcon from "@/assets/icons/bed.svg";
 import BathRoomicon from "@/assets/icons/bathroom.svg";
 import GuestsIcon from "@/assets/icons/guests.svg";
+import BookingModal from "@/components/ui/bookingModal";
+import Modal from "@/components/ui/modal";
 
 const Rooms = () => {
   const Room_data = [
@@ -51,19 +54,29 @@ const Rooms = () => {
     //   bathrooms: 1,
     // },
   ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="py-[50px] px-4">
-      <h2 className="text-4xl text-center font-bold text-primary">Our Rooms</h2>
+    <div  id="rooms" className="py-[50px] px-4">
+      <div>
+        <h2 className="text-4xl text-center font-bold text-primary">
+          Our Rooms
+        </h2>
 
-      <div className="pt-[30px] flex-wrap flex justify-between gap-10">
-        {Room_data.map((item, i) => (
-          <RoomCard key={i} {...item} />
-        ))}
+        <div className="pt-[30px] flex-wrap flex justify-between gap-10">
+          {Room_data.map((item, i) => (
+            <RoomCard setOpen={setOpen} key={i} {...item} />
+          ))}
+        </div>
+        <p className="text-lg font-medium text-primary gap-x-3 pt-7 cursor-pointer justify-center  flex items-center">
+          View More <ArrowRight />
+        </p>
       </div>
-      <p className="text-lg font-medium text-primary gap-x-3 pt-7 cursor-pointer justify-center  flex items-center">
-        View More <ArrowRight />
-      </p>
+      <div className="relative z-10">
+        <Modal width="475px" setOpen={setOpen} isOpen={open}>
+          <BookingModal setOpen={setOpen} open={open} />
+        </Modal>
+      </div>
     </div>
   );
 };
@@ -78,6 +91,7 @@ const RoomCard = ({
   price,
   rating,
   title,
+  setOpen,
 }: {
   image: any;
   title: string;
@@ -86,9 +100,10 @@ const RoomCard = ({
   beds: number;
   guests: number;
   bathrooms: number;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="w-[375px] bg-[#E9FFEE] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 ">
+    <div  className="w-[375px] bg-[#E9FFEE] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 ">
       <div className="h-[200px] group rounded-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r z-30 from-transparent via-white/40 to-transparent scale-150 rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-500 ease-in-out"></div>
         <Image
@@ -125,6 +140,7 @@ const RoomCard = ({
           View Details
         </button>
         <Button
+          onClick={() => setOpen(true)}
           className="bg-transparent hover:bg-[#29DB0E]/10"
           size={"lg"}
           variant={"outline"}
