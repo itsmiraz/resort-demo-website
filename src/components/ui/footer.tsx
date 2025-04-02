@@ -67,7 +67,7 @@ const Footer = () => {
           ))}
         </ul>
 
-        <ul className="flex justify-center inter-font text-[#434343] gap-x-8 items-center text-sm">
+        <ul className="flex justify-center inter-font text-[#434343] gap-x-4 items-center text-sm">
           {socialLinks.map((item, i) => (
             <li key={i}>
               <Link href={item.link}>{item.icon}</Link>

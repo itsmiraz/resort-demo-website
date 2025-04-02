@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${space_Grotesk.className} ${inter.variable} max-w-[1400px] mx-auto ease-in-out transition-all duration-300 px-10 py-4 antialiased`}
+        className={` ${space_Grotesk.className} ${inter.variable} max-w-[1400px] mx-auto ease-in-out transition-all duration-300 px-20 py-4 antialiased`}
       >
         <NavBar />
         <div className="">{children}</div>

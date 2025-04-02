@@ -11,6 +11,9 @@ import LinkedInIcon from "./linkedin.svg";
 import PlayIcon from "./play.svg";
 import XIcon from "./x.svg";
 import YouTubeIcon from "./youtube.svg";
+import EmailIcon from "./email.svg";
+import PhoneIcon from "./phone.svg";
+import LocationIcon from "./location.svg";
 
 export {
   ActivityIcon,
@@ -26,4 +29,7 @@ export {
   PlayIcon,
   XIcon,
   YouTubeIcon,
+  EmailIcon,
+  PhoneIcon,
+  LocationIcon
 };
