@@ -14,19 +14,23 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <div>
+    <div className="pt-4 relative z-20">
       <div
-        className="bg-cover rounded-[40px]  bg-center bg-no-repeat  w-full py-[80px] px-[70px]"
+        className="bg-cover relative flex flex-col justify-between overflow-hidden rounded-[30px] md:rounded-[40px]  bg-center bg-no-repeat  w-full py-[40px] md:py-[80px] px-[36px] md:px-[70px]"
         style={{ backgroundImage: `url(${HeroCover.src})` }}
       >
-        <h1 className="text-5xl mb-[20px] font-bold text-white">
-          Your Dream Vacation <br /> Starts Right Here
+        <h1 className="text-5xl  relative z-20 mb-[20px] font-bold text-white">
+          Your Dream Vacation <br className="md:block hidden" /> Starts Right Here
         </h1>
-        <p className="text-white mb-[36px] font-medium text-2xl ">
-          Experience the perfect blend of relaxation <br />
+        <p className="text-white  relative z-20 mb-[36px] font-medium text-2xl ">
+          Experience the perfect blend of relaxation <br className="md:block hidden" />
           and adventure.
         </p>
         <SearchFilter />
+
+        <div className="w-full z-10 h-full  bg-black/30 absolute top-0 left-0">
+
+        </div>
       </div>
     </div>
   );
@@ -41,7 +45,7 @@ const SearchFilter = () => {
   const [guests, setGuests] = useState(2);
   const [selectedType, setSelectedType] = useState<string>("Room");
   return (
-    <div className="bg-white justify-between w-full py-[26px] px-[40px] rounded-[20px] w-fit ease-in-out transition-all duration-300 flex  items-center ">
+    <div className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:w-fit ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center ">
       {/* Check-in Date Selector */}
       <DateSelector
         title="Check In"
@@ -66,9 +70,11 @@ const SearchFilter = () => {
       />
 
       {/* Main Buton */}
-      <Button variant={"primary"} size={"lg"}>
+     <div className="col-span-2">
+     <Button variant={"primary"} className="w-full md:w-fit" size={"lg"}>
         Check Availability <Search />
       </Button>
+     </div>
     </div>
   );
 };
@@ -84,10 +90,10 @@ const DateSelector = ({
 }) => {
   return (
     <div>
-      <p className="text-sm font-medium text-primary">{title}</p>
+      <p className="text-xs md:text-sm font-medium text-primary">{title}</p>
       <Popover>
         <PopoverTrigger asChild>
-          <p className="cursor-pointer whitespace-nowrap text-lg font-medium text-primary border-[#06402A] flex gap-x-[14px] border-b-2 ">
+          <p className="cursor-pointer whitespace-nowrap text-sm md:text-lg font-medium text-primary border-[#06402A] flex gap-x-[14px] border-b md:border-b-2 ">
             {date ? format(date, "PPP") : <span>Pick a date</span>}
             <ChevronDown />
           </p>
@@ -113,8 +119,8 @@ const GuestSelector = ({
   setGuests: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   return (
-    <div className="border-[#06402A] border-b-2 ">
-      <p className="text-sm font-medium text-primary">Guests</p>
+    <div className="border-[#06402A] border-b md:border-b-2 ">
+      <p className="text-xs md:text-sm font-medium text-primary">Guests</p>
       <div className="flex  h-8 justify-center items-center gap-x-4">
         <button
           className="cursor-pointer"
@@ -122,7 +128,7 @@ const GuestSelector = ({
         >
           <MinusIcon />
         </button>
-        <p className="text-xl font-medium">{guests}</p>
+        <p className="text-sm md:text-xl font-medium">{guests}</p>
 
         <button
           className="cursor-pointer"
@@ -153,13 +159,13 @@ const SelectType = ({
 
   return (
     <div className="flex flex-col relative">
-      <p className="text-sm whitespace-nowrap font-medium text-primary">Select Type</p>
+      <p className="text-xs md:text-sm whitespace-nowrap font-medium text-primary">Select Type</p>
 
       {/* Custom dropdown */}
       <div className="relative ">
         <button
           onClick={toggleDropdown}
-          className="w-full h-9 px-1 gap-x-4 bg-white border-b-2 border-[#06402A] flex items-center justify-start text-xl font-medium text-primary"
+          className="w-full h-9 px-1 gap-x-4 bg-white border-b md:border-b-2 border-[#06402A] flex items-center justify-start text-[15px] md:text-xl font-medium text-primary"
         >
           {selectedType} {/* Display selected option */}
           <ChevronDown /> {/* Down arrow */}

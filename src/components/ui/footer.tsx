@@ -56,10 +56,10 @@ const Footer = () => {
   ];
   return (
     <div className="py-14 space-y-10 px-10 bg-green-100 rounded-xl">
-      <div className="flex justify-between items-center">
+      <div className="flex md:flex-row flex-col gap-8 justify-between items-center">
         <h2 className="text-xl font-medium">Resort Website</h2>
 
-        <ul className="flex justify-center inter-font text-[#434343] gap-x-8 items-center text-sm">
+        <ul className="flex  flex-wrap justify-center inter-font text-[#434343] gap-x-8 items-center text-sm">
           {navLinks.map((item, i) => (
             <li key={i}>
               <Link href={item.link}>{item.label}</Link>
@@ -76,7 +76,7 @@ const Footer = () => {
         </ul>
       </div>
       <hr />
-      <div className="flex items-center inter-font justify-center text-[#434343] gap-x-6  text-sm">
+      <div className="flex flex-wrap gap-5 items-center inter-font justify-center text-[#434343] gap-x-6  text-sm">
         <p> 2025 Resort Website. All right reserved.</p>
         <p>Privacy Policy</p>
         <p>Terms of Service</p>
