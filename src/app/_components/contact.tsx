@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 const Contact = () => {
   return (
-    <div className="py-[50px] mb-[100px] flex justify-between gap-20">
+    <div className="py-[50px] md:px-0 px-4 mb-[50px] md:mb-[100px] flex md:flex-row flex-col  justify-between gap-20">
       <div>
         <h2 className="text-4xl  font-bold text-primary">Contact Us</h2>
         <p className="text-lg py-4">
@@ -38,7 +38,7 @@ const Contact = () => {
           />
         </div>
       </div>
-      <div className="w-[40%]">
+      <div className="w-[100%] md:w-[40%]">
         <ContactForm />
       </div>
     </div>

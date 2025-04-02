@@ -39,13 +39,13 @@ const Facilities = () => {
   ];
 
   return (
-    <div className="py-[50px]">
+    <div className="py-[50px] md:px-0 px-4">
       <h2 className="text-primary font-bold text-center text-[36px]">
         Our Facilities
       </h2>
 
       <div className="grid place-items-center grid-cols-9 pt-[30px] gap-10">
-        <div className="col-span-5 grid grid-cols-2 gap-8">
+        <div className="col-span-9 md:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
           {amenities_data.map((item, i) => (
             <div key={i}>
               <div className="w-[80px]">{item.icon}</div>
@@ -56,7 +56,7 @@ const Facilities = () => {
             </div>
           ))}
         </div>
-        <div className="col-span-4 relative">
+        <div className="col-span-9 md:col-span-4 relative order-first md:order-last">
         <button className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4">
           <PlayIcon />
         </button>

@@ -12,22 +12,22 @@ import Image from "next/image";
 
 const Gallery = () => {
   return (
-    <div className="py-[50px]">
+    <div className="py-[50px] px-4 md:px-0">
       <h2 className="text-4xl text-center font-bold text-primary">Gallery</h2>
 
-      <div className="grid-cols-3 pt-[30px] grid gap-[32px]">
-        <div className="space-y-[32px]">
+      <div className="grid-cols-2 md:grid-cols-3 pt-[30px] grid gap-[16px] md:gap-[32px]">
+        <div className=" space-y-[16px] md:space-y-[32px]">
           <ShinyImage className="w-full" src={Image1} alt="Image 1" />
           <ShinyImage className="w-full" src={Image2} alt="Image 2" />
         </div>
 
-        <div className="space-y-[32px]">
+        <div className=" space-y-[16px] md:space-y-[32px]">
           <ShinyImage className="w-full" src={Image3} alt="Image 3" />
           <ShinyImage className="w-full" src={Image4} alt="Image 4" />
           <ShinyImage className="w-full" src={Image5} alt="Image 5" />
         </div>
 
-        <div className="space-y-[32px]">
+        <div className="space-y-[32px] md:block hidden">
           <ShinyImage className="w-full" src={Image6} alt="Image 6" />
           <ShinyImage className="w-full" src={Image7} alt="Image 7" />
         </div>
@@ -45,7 +45,7 @@ interface ShinyImageProps {
 
 const ShinyImage: React.FC<ShinyImageProps> = ({ src, alt, className }) => {
   return (
-    <div className={`relative  rounded-[20px] cursor-pointer overflow-hidden group ${className}`}>
+    <div className={`relative  rounded-[10px] md:rounded-[20px] cursor-pointer overflow-hidden group ${className}`}>
       {/* Image */}
       <Image className="w-full hover:scale-110 transition-all ease-in-out duration-300" src={src} alt={alt} />
 

@@ -5,19 +5,19 @@ import ExpertisePillImage2 from "@/assets/images/expertise-pill-2.png";
 const Expertise = () => {
   return (
     <div className="py-20">
-      <h2 className="text-[38px]  align-middle  items-center text-primary font-bold text-center">
-        <span className="inline-flex items-center justify-center">
+      <h2 className="text-[28px] md:text-[38px] align-middle  items-center text-primary font-bold text-center">
           {" "}
-          Savor a world of flavors crafted by expert{" "}
-        </span>
-        <span className="inline-flex px-4 translate-y-2 items-center justify-center">
-          <Image className="" src={ExpertisePillImage1} alt="" />
+          Savor a world of     <span className="inline-flex md:hidden  px-4 translate-y-2 items-center justify-center">
+          <Image className="md:w-[140px] w-[100px]" src={ExpertisePillImage1} alt="" />
+        </span> flavors  crafted by expert{" "}
+        <span className="md:inline-flex hidden  px-4 translate-y-2 items-center justify-center">
+          <Image className="md:w-[140px] w-[100px]" src={ExpertisePillImage1} alt="" />
         </span>{" "}
-        <br />
-        chefs, featuring fresh local ingredients and gourmet <br />{" "}
-        <span className="inline-flex items-center justify-center translate-y-3">
+        <br className="md:block hidden" />
+        chefs, featuring fresh local ingredients and gourmet <br className="md:block hidden" />{" "}
+        <span className="inline-flex items-center pr-4 justify-center translate-y-3">
           {" "}
-          <Image src={ExpertisePillImage2} alt="" />
+          <Image className="md:w-[140px] w-[100px]" src={ExpertisePillImage2} alt="" />
         </span>{" "}
         international cuisine.
       </h2>

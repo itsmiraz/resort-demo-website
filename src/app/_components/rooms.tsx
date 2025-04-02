@@ -16,7 +16,7 @@ const Rooms = () => {
   const Room_data = [
     {
       image: RoomImg1,
-      title: "Luxury Deluxe Room",
+      title: "Luxury Deluxe ",
       rating: 4.5,
       price: "$150 -$250",
       beds: 2,
@@ -53,7 +53,7 @@ const Rooms = () => {
   ];
 
   return (
-    <div className="py-[50px]">
+    <div className="py-[50px] px-4">
       <h2 className="text-4xl text-center font-bold text-primary">Our Rooms</h2>
 
       <div className="pt-[30px] flex-wrap flex justify-between gap-10">
@@ -98,8 +98,8 @@ const RoomCard = ({
         />
       </div>
       <div className="flex justify-between items-center flex-wrap">
-        <h3 className="text-2xl font-bold ">{title}</h3>
-        <p className="bg-[#FFF0D8] items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
+        <h3 className="text-2xl font-bold w-[220px] truncate ">{title}</h3>
+        <p className="bg-[#FFF0D8]   items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
           <Star size={18} /> {rating}
         </p>
       </div>

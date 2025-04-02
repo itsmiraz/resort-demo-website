@@ -13,7 +13,7 @@ import { Swiper as SwiperType } from "swiper";
 const testimonials = [
   {
     name: "John Doe",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum .",
     rating: 4,
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     company: "Abc, Resdium Digital",
@@ -58,7 +58,7 @@ const handleRightClick = () => {
   swiperRef.current?.slideNext(); // ✅ No .swiper needed
 };
   return (
-    <div className="py-[50px]">
+    <div className="py-[50px] pl-4 md:pl-0">
       <h2 className="text-4xl  text-center font-bold text-primary">
         Customer testimonials
       </h2>
@@ -128,7 +128,7 @@ const handleRightClick = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex gap-5 justify-end mt-5">
+        <div className="flex gap-5 justify-center md:justify-end mt-5">
           <button
             onClick={() => handleLeftClick()}
             className="size-[40px] opacity-80 cursor-pointer border-2 text-primary rounded-full border-primary flex justify-center items-center "
@@ -163,7 +163,7 @@ const TestimonialsCard = ({
   company: string;
 }) => {
   return (
-    <div className="w-[450px] bg-white h-[282px] flex flex-col justify-between space-y-4 rounded-[20px] border border-black/20 p-[32px] ">
+    <div className="w-[350px] md:w-[450px] bg-white h-[230px] md:h-[282px] flex flex-col justify-between space-y-4 rounded-[20px] border border-black/20 p-[24px] md:p-[32px] ">
       <div className="flex  text-orange-400 gap-x-2">
         {Array.from({ length: rating }, (_, i) => (
           <Star fill="#FF9D00" size={16} key={i} />

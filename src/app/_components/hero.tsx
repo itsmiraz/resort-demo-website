@@ -45,7 +45,7 @@ const SearchFilter = () => {
   const [guests, setGuests] = useState(2);
   const [selectedType, setSelectedType] = useState<string>("Room");
   return (
-    <div className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:w-fit ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center ">
+    <div className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:w-full ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center ">
       {/* Check-in Date Selector */}
       <DateSelector
         title="Check In"
