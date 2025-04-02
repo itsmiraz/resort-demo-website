@@ -27,7 +27,7 @@ const NavBar = () => {
       <div className="">
         <h2 className="text-2xl font-bold text-[#06402A] ">Resort Website</h2>
       </div>
-      <ul className="flex justify-center inter-font text-[#434343] gap-x-8 items-center text-lg">
+      <ul className="flex justify-center inter-font text-[#434343] gap-x-8 items-center text-sm">
         {navLinks.map((item, i) => (
           <li key={i}>
             <Link href={item.link}>{item.label}</Link>

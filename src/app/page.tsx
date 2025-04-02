@@ -18,8 +18,8 @@ const Home = () => {
       <Dining />
       <About />
       <Facilities />
-      <Gallery />
       <Testimonials />
+      <Gallery />
       <Contact />
     </div>
   );
