@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Space_Grotesk ,Inter} from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const space_Grotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -27,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${space_Grotesk.className} ${inter.variable} px-10 py-4 antialiased`}
       >
         <NavBar />
-        <div>{children}</div>
+        <div className="">{children}</div>
         <Footer />
       </body>
     </html>
