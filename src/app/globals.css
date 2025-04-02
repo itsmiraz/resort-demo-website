@@ -127,3 +127,11 @@
   font-family: var(--font-inter);
 }
 
+/* global colors */
+
+.text-primary {
+  color: var(--primary-color);
+}
+.bg-primary {
+  background-color: var(--primary-color);
+}
