@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React, { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,10 +15,10 @@ const Modal = ({ children, isOpen, width, padding, setOpen }: ModalProps) => {
   const defaultPadding = padding || "20px";
 
   return (
-    <AnimatePresence>
+    <div >
       {isOpen && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center z-[999] w-full bg-black/50 px-6"
+          className="fixed inset-0 flex items-center justify-center z-[999999]! w-full bg-black/50 px-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -41,7 +40,7 @@ const Modal = ({ children, isOpen, width, padding, setOpen }: ModalProps) => {
           ></div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </div>
   );
 };
 

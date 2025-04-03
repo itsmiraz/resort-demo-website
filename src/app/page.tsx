@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Hero from "./_components/hero";
 import Expertise from "./_components/expertise";
@@ -8,19 +9,26 @@ import Facilities from "./_components/facilities";
 import Gallery from "./_components/gallery";
 import Testimonials from "./_components/testimonials";
 import Contact from "./_components/contact";
+import { useGlobalContext } from "@/components/context/globalContext";
 
 const Home = () => {
+  const { isAnimate } = useGlobalContext();
+
   return (
     <div>
       <Hero />
-     <Expertise />
-       <Rooms />
-     <Dining />
-      <About />
-       <Facilities />
-     <Testimonials />
-     <Gallery />
-      <Contact />
+      {isAnimate && (
+        <>
+          <Expertise />
+          <Rooms />
+          <Dining />
+          <About />
+          <Facilities />
+          <Testimonials />
+          <Gallery />
+          <Contact />
+        </>
+      )}
     </div>
   );
 };

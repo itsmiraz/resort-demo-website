@@ -12,72 +12,220 @@ import { format } from "date-fns";
 import { ChevronDown, MinusIcon, Plus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
+import { useGlobalContext } from "@/components/context/globalContext";
+import useIsMobile from "@/hooks/useIsMobile";
 const Hero = () => {
+  const { isAnimate, count } = useGlobalContext();
+  const { isMobile } = useIsMobile();
+  console.log(isMobile);
   return (
-    <div className="pt-4 relative z-20">
-      <div
-        className="bg-cover relative flex flex-col justify-between overflow-hidden rounded-[30px] md:rounded-[40px]  bg-center bg-no-repeat  w-full py-[40px] md:py-[80px] px-[36px] md:px-[70px]"
-        style={{ backgroundImage: `url(${HeroCover.src})` }}
+    <div className="pt-4 relative z-10 flex justify-center items-center md:[580px] h-[650px]">
+      <motion.div
+        initial={{
+          width: isMobile ? "35%" : "15%",
+          height: isMobile ? "20%" : "10%",
+          opacity: 1,
+          fill: "#06402A",
+          backgroundColor: "#06402A",
+        }}
+        animate={{
+          width: isAnimate ? "100%" : isMobile ? "35%" : "15%",
+          height: isAnimate ? "100%" : isMobile ? "20%" : "10%",
+          opacity: 1,
+          backgroundImage: isAnimate ? `url(${HeroCover.src})` : "",
+          fill: "#06402A",
+          backgroundColor: "#06402A",
+        }}
+        transition={{ duration: 0.4 }}
+        className="bg-cover relative flex flex-col justify-between  overflow-hidden rounded-[30px] md:rounded-[40px] bg-center bg-no-repeat w-full py-[40px] md:py-[80px] px-[36px] md:px-[70px]"
       >
-        <h1 className="text-5xl  relative z-20 mb-[20px] font-bold text-white">
-          Your Dream Vacation <br className="md:block hidden" /> Starts Right Here
-        </h1>
-        <p className="text-white  relative z-20 mb-[36px] font-medium text-2xl ">
-          Experience the perfect blend of relaxation <br className="md:block hidden" />
-          and adventure.
-        </p>
-        <SearchFilter />
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 1,
+            height: "100%",
+          }}
+          animate={{
+            opacity: isAnimate ? 0 : 1,
+            scale: isAnimate ? 0 : 1,
+            height: isAnimate ? "0%" : "100%",
+          }}
+          className={`${
+            count === 100 && "hidden"
+          } text-4xl w-full h-full flex  justify-center items-center font-bold text-white`}
+        >
+          <h2 className="p-5">{count}%</h2>
+        </motion.div>
 
-        <div className="w-full z-10 h-full  bg-black/10 absolute top-0 left-0">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          className="flex flex-col justify-between h-full"
+          animate={{
+            opacity: isAnimate ? 1 : 0,
+          }}
+        >
+          <div>
+            <motion.h1
+              initial={{
+                // width: "0%",
+                opacity: 0,
+                scale: 0,
+              }}
+              animate={{
+                // width: isAnimate ? "100%" : 0,
+                opacity: isAnimate ? 1 : 0,
+                scale: isAnimate ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="text-5xl relative z-20 mb-[20px] font-bold text-white"
+            >
+              Your Dream Vacation <br className="md:block hidden" /> Starts
+              Right Here
+            </motion.h1>
+            <motion.p
+              initial={{
+                scale: 0,
 
-        </div>
-      </div>
+                opacity: 0,
+              }}
+              animate={{
+                scale: isAnimate ? 1 : 0,
+                opacity: isAnimate ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, delay: 0.6 }}
+              className="text-white relative z-20 mb-[36px] font-medium text-2xl"
+            >
+              Experience the perfect blend of relaxation{" "}
+              <br className="md:block hidden" />
+              and adventure.
+            </motion.p>
+          </div>
+          <SearchFilter isAnimate={isAnimate} />
+
+          <div className="w-full z-10 h-full bg-black/10 absolute top-0 left-0"></div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
 
 export default Hero;
 
-
-const SearchFilter = () => {
+const SearchFilter = ({ isAnimate }: { isAnimate: boolean }) => {
   const [checkInDate, setCheckInDate] = useState<Date>();
   const [checkOutDate, setCheckOutDate] = useState<Date>();
   const [guests, setGuests] = useState(2);
   const [selectedType, setSelectedType] = useState<string>("Room");
   return (
-    <div className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:w-full ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center ">
+    <motion.div
+      initial={{
+        width: "0%",
+        height: "40%",
+        opacity: 0,
+
+        // scale:0
+      }}
+      animate={{
+        width: isAnimate ? "100%" : 0,
+        height: "40%",
+
+        opacity: isAnimate ? 1 : 0,
+        // scale:isAnimate ? 1 : 0,
+      }}
+      transition={{ duration: 0.4, delay: 0.3 }}
+      className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:max-h-[120px] md:w-full ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center "
+    >
       {/* Check-in Date Selector */}
-      <DateSelector
-        title="Check In"
-        date={checkInDate}
-        setDate={setCheckInDate}
-      />
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{
+          opacity: isAnimate ? 1 : 0,
+          scale: isAnimate ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, delay: 1 }}
+      >
+        <DateSelector
+          title="Check In"
+          date={checkInDate}
+          setDate={setCheckInDate}
+        />
+      </motion.div>
 
       {/* Check-out Date Selector */}
-      <DateSelector
-        title="Check Out"
-        date={checkOutDate}
-        setDate={setCheckOutDate}
-      />
-
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{
+          opacity: isAnimate ? 1 : 0,
+          scale: isAnimate ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, delay: 1 }}
+      >
+        <DateSelector
+          title="Check Out"
+          date={checkOutDate}
+          setDate={setCheckOutDate}
+        />
+      </motion.div>
       {/* Select Amount of guests */}
-      <GuestSelector guests={guests} setGuests={setGuests} />
-
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{
+          opacity: isAnimate ? 1 : 0,
+          scale: isAnimate ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, delay: 1 }}
+      >
+        <GuestSelector guests={guests} setGuests={setGuests} />
+      </motion.div>
       {/* Select Room or Villa */}
-      <SelectType
-        selectedType={selectedType}
-        setSelectedType={setSelectedType}
-      />
-
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{
+          opacity: isAnimate ? 1 : 0,
+          scale: isAnimate ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, delay: 1 }}
+      >
+        <SelectType
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+        />
+      </motion.div>
       {/* Main Buton */}
-     <div className="col-span-2">
-    <Link href='#rooms'>
-    <Button variant={"primary"} className="w-full md:w-fit" size={"lg"}>
-        Check Availability <Search />
-      </Button></Link>
-     </div>
-    </div>
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{
+          opacity: isAnimate ? 1 : 0,
+          scale: isAnimate ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, delay: 1 }}
+        className="col-span-2"
+      >
+        <Link href="#rooms">
+          <Button variant={"primary"} className="w-full md:w-fit" size={"lg"}>
+            Check Availability <Search />
+          </Button>
+        </Link>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -161,7 +309,9 @@ const SelectType = ({
 
   return (
     <div className="flex flex-col relative">
-      <p className="text-xs md:text-sm whitespace-nowrap font-medium text-primary">Select Type</p>
+      <p className="text-xs md:text-sm whitespace-nowrap font-medium text-primary">
+        Select Type
+      </p>
 
       {/* Custom dropdown */}
       <div className="relative ">

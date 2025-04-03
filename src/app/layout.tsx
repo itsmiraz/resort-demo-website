@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import {Space_Grotesk ,Inter} from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
-
-
+import { GlobalProvider } from "@/components/context/globalContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,9 +29,11 @@ export default function RootLayout({
       <body
         className={` ${space_Grotesk.className} ${inter.variable} max-w-[1400px] mx-auto ease-in-out transition-all duration-300 px-2 md:px-20 pb-4 pt-0 md:py-4 antialiased`}
       >
-        <NavBar />
-        <div className="">{children}</div>
-        <Footer />
+        <GlobalProvider>
+          <NavBar />
+          <div className="">{children}</div>
+          <Footer />
+        </GlobalProvider>
       </body>
     </html>
   );

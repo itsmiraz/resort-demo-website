@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import {
@@ -7,8 +8,11 @@ import {
   YouTubeIcon,
   XIcon,
 } from "@/assets/icons/index";
-
+import { useGlobalContext } from "../context/globalContext";
+import { motion } from "framer-motion";
 const Footer = () => {
+  const { isAnimate } = useGlobalContext();
+
   const navLinks = [
     {
       label: "Home",
@@ -55,7 +59,12 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="py-14 space-y-10 px-10 bg-green-100 rounded-xl">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isAnimate ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
+      className="py-14 space-y-10 px-10 bg-green-100 rounded-xl"
+    >
       <div className="flex md:flex-row flex-col gap-8 justify-between items-center">
         <h2 className="text-xl font-medium">Resort Website</h2>
 
@@ -82,7 +91,7 @@ const Footer = () => {
         <p>Terms of Service</p>
         <p>Cookies Settings</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

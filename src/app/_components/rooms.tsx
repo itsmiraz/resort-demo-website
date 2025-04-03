@@ -72,11 +72,9 @@ const Rooms = () => {
           View More <ArrowRight />
         </p>
       </div>
-      <div className="relative z-10">
         <Modal width="475px" setOpen={setOpen} isOpen={open}>
           <BookingModal setOpen={setOpen} open={open} />
         </Modal>
-      </div>
     </div>
   );
 };
