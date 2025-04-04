@@ -8,12 +8,13 @@ import RoomImg3 from "@/assets/images/room3.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
-
+import { motion } from "framer-motion";
 import BedIcon from "@/assets/icons/bed.svg";
 import BathRoomicon from "@/assets/icons/bathroom.svg";
 import GuestsIcon from "@/assets/icons/guests.svg";
 import BookingModal from "@/components/ui/bookingModal";
 import Modal from "@/components/ui/modal";
+import { useInView } from "react-intersection-observer";
 
 const Rooms = () => {
   const Room_data = [
@@ -55,9 +56,10 @@ const Rooms = () => {
     // },
   ];
   const [open, setOpen] = useState(false);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <div  id="rooms" className="py-[50px] px-4">
+    <div ref={ref} id="rooms" className="py-[50px] px-4">
       <div>
         <h2 className="text-4xl text-center font-bold text-primary">
           Our Rooms
@@ -65,16 +67,22 @@ const Rooms = () => {
 
         <div className="pt-[30px] flex-wrap flex justify-between gap-10">
           {Room_data.map((item, i) => (
-            <RoomCard setOpen={setOpen} key={i} {...item} />
+            <RoomCard
+              i={i}
+              inView={inView}
+              setOpen={setOpen}
+              key={i}
+              {...item}
+            />
           ))}
         </div>
         <p className="text-lg font-medium text-primary gap-x-3 pt-7 cursor-pointer justify-center  flex items-center">
           View More <ArrowRight />
         </p>
       </div>
-        <Modal width="475px" setOpen={setOpen} isOpen={open}>
-          <BookingModal setOpen={setOpen} open={open} />
-        </Modal>
+      <Modal width="475px" setOpen={setOpen} isOpen={open}>
+        <BookingModal setOpen={setOpen} open={open} />
+      </Modal>
     </div>
   );
 };
@@ -89,6 +97,8 @@ const RoomCard = ({
   price,
   rating,
   title,
+  inView,
+  i,
   setOpen,
 }: {
   image: any;
@@ -96,12 +106,19 @@ const RoomCard = ({
   rating: number;
   price: string;
   beds: number;
+  inView: boolean;
+  i: number;
   guests: number;
   bathrooms: number;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div  className="w-[375px] bg-[#E9FFEE] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 ">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: inView ? 1 : 0 }}
+      transition={{ duration: 0.4, delay: i * 0.2 }}
+      className="w-[375px] bg-[#E9FFEE] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 "
+    >
       <div className="h-[200px] group rounded-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r z-30 from-transparent via-white/40 to-transparent scale-150 rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-500 ease-in-out"></div>
         <Image
@@ -112,7 +129,7 @@ const RoomCard = ({
       </div>
       <div className="flex justify-between items-center flex-wrap">
         <h3 className="text-2xl font-bold w-[220px] truncate ">{title}</h3>
-        <p className="bg-[#ffe3b7]   items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
+        <p className="bg-[#fff1db]   items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
           <Star size={18} /> {rating}
         </p>
       </div>
@@ -146,6 +163,6 @@ const RoomCard = ({
           Book Now
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -18,9 +18,8 @@ import useIsMobile from "@/hooks/useIsMobile";
 const Hero = () => {
   const { isAnimate, count } = useGlobalContext();
   const { isMobile } = useIsMobile();
-  console.log(isMobile);
   return (
-    <div className="pt-4 relative z-10 flex justify-center items-center md:[580px] h-[650px]">
+    <div className="pt-4 relative z-10 flex justify-center items-center md:h-[600px] h-[650px]">
       <motion.div
         initial={{
           width: isMobile ? "35%" : "15%",
@@ -40,23 +39,13 @@ const Hero = () => {
         transition={{ duration: 0.4 }}
         className="bg-cover relative flex flex-col justify-between  overflow-hidden rounded-[30px] md:rounded-[40px] bg-center bg-no-repeat w-full py-[40px] md:py-[80px] px-[36px] md:px-[70px]"
       >
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 1,
-            height: "100%",
-          }}
-          animate={{
-            opacity: isAnimate ? 0 : 1,
-            scale: isAnimate ? 0 : 1,
-            height: isAnimate ? "0%" : "100%",
-          }}
+        <div
           className={`${
             count === 100 && "hidden"
           } text-4xl w-full h-full flex  justify-center items-center font-bold text-white`}
         >
           <h2 className="p-5">{count}%</h2>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{
@@ -122,21 +111,21 @@ const SearchFilter = ({ isAnimate }: { isAnimate: boolean }) => {
   return (
     <motion.div
       initial={{
-        width: "0%",
-        height: "40%",
+        width: "0px",
+        height: "0%",
         opacity: 0,
-
-        // scale:0
       }}
       animate={{
-        width: isAnimate ? "100%" : 0,
+        width: isAnimate ? "100%" : "0%",
         height: "40%",
-
         opacity: isAnimate ? 1 : 0,
+
         // scale:isAnimate ? 1 : 0,
       }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] px-[20px] md:px-[40px] rounded-[20px] md:max-h-[120px] md:w-full ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center "
+      className={` ${
+        isAnimate ? "px-[20px] md:px-[40px]" : "px-0"
+      } bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] rounded-[20px] md:max-h-[120px] md:w-full   ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center`}
     >
       {/* Check-in Date Selector */}
       <motion.div
@@ -144,6 +133,7 @@ const SearchFilter = ({ isAnimate }: { isAnimate: boolean }) => {
           opacity: 0,
           scale: 0,
         }}
+        className=""
         animate={{
           opacity: isAnimate ? 1 : 0,
           scale: isAnimate ? 1 : 0,
