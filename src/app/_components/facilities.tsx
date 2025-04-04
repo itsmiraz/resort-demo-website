@@ -57,7 +57,7 @@ const Facilities = () => {
           ))}
         </div>
         <div className="col-span-9 md:col-span-4 relative order-first md:order-last">
-        <button className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4">
+        <button aria-label='play-button' className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4">
           <PlayIcon />
         </button>
           <Image className="relative" src={FacilityImage} alt="" />

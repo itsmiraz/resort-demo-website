@@ -17,7 +17,7 @@ const About = () => {
         </div>
       </div>
       <div className="relative overflow-hidden  h-[200px] md:h-fit rounded-[30px]">
-        <button className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <button aria-label='play-button' className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <PlayIcon />
         </button>
         <Image

@@ -75,6 +75,7 @@ const NavBar = () => {
             </Button>
           </Link>
           <button
+            aria-label="menu"
             className="md:hidden block"
             onClick={() => setIsOpen(!isOpen)}
           >
