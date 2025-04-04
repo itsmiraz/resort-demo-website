@@ -243,10 +243,13 @@ const DateSelector = ({
       <p className="text-xs md:text-sm font-medium text-primary">{title}</p>
       <Popover>
         <PopoverTrigger asChild>
-          <p className="cursor-pointer whitespace-nowrap text-sm md:text-lg font-medium text-primary border-[#06402A] flex gap-x-[14px] border-b md:border-b-2 ">
+          <button
+            type="button"
+            className="cursor-pointer whitespace-nowrap text-sm md:text-lg font-medium text-primary border-[#06402A] flex gap-x-[14px] border-b md:border-b-2"
+          >
             {date ? format(date, "PPP") : <span>Pick a date</span>}
             <ChevronDown />
-          </p>
+          </button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
@@ -273,6 +276,7 @@ const GuestSelector = ({
       <p className="text-xs md:text-sm font-medium text-primary">Guests</p>
       <div className="flex  h-8 justify-center items-center gap-x-4">
         <button
+          aria-label="decrease"
           className="cursor-pointer"
           onClick={() => guests > 1 && setGuests((prev) => prev - 1)}
         >
@@ -281,6 +285,7 @@ const GuestSelector = ({
         <p className="text-sm md:text-xl font-medium">{guests}</p>
 
         <button
+          aria-label="increase"
           className="cursor-pointer"
           onClick={() => setGuests((prev) => prev + 1)}
         >

@@ -112,7 +112,7 @@ const RoomCard = ({
       </div>
       <div className="flex justify-between items-center flex-wrap">
         <h3 className="text-2xl font-bold w-[220px] truncate ">{title}</h3>
-        <p className="bg-[#FFF0D8]   items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
+        <p className="bg-[#ffe3b7]   items-center w-fit rounded-full px-3 py-1 text-[#FF9D00] flex gap-x-2 font-medium inter-font">
           <Star size={18} /> {rating}
         </p>
       </div>

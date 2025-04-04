@@ -131,12 +131,15 @@ const handleRightClick = () => {
         <div className="flex gap-5 justify-center md:justify-end mt-5">
           <button
             onClick={() => handleLeftClick()}
+              aria-label="Go to previous slide"
             className="size-[40px] opacity-80 cursor-pointer border-2 text-primary rounded-full border-primary flex justify-center items-center "
           >
             <ArrowLeft />
           </button>
           <button
+          
             onClick={() => handleRightClick()}
+            aria-label="Go to next slide"
             className="size-[40px] opacity-80 cursor-pointer border-2 text-primary rounded-full border-primary flex justify-center items-center "
           >
             <ArrowRight />
@@ -177,7 +180,7 @@ const TestimonialsCard = ({
         <Image
           src={image}
           className="rounded-full  overflow-hidden"
-          alt=" "
+          alt={`${name}-profile`}
           height={56}
           width={56}
         />
