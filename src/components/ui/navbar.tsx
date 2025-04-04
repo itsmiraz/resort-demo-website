@@ -11,7 +11,7 @@ const NavBar = () => {
   const navLinks = [
     {
       label: "Home",
-      link: "#hero",
+      link: "/#hero",
     },
     {
       label: "About",
