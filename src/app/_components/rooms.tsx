@@ -117,7 +117,7 @@ const RoomCard = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.4, delay: i * 0.2 }}
-      className="w-[375px] bg-[#E9FFEE] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 "
+      className="w-[375px] bg-[#f6fff8] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 "
     >
       <div className="h-[200px] group rounded-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r z-30 from-transparent via-white/40 to-transparent scale-150 rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-500 ease-in-out"></div>
