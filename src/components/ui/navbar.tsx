@@ -15,15 +15,15 @@ const NavBar = () => {
     },
     {
       label: "About",
-      link: "#about",
+      link: "/#about",
     },
     {
       label: "Rooms",
-      link: "#rooms",
+      link: "/#rooms",
     },
     {
       label: "Gallery",
-      link: "#gallery",
+      link: "/#gallery",
     },
   ];
   const menuVariants = {
