@@ -19,7 +19,7 @@ const Hero = () => {
   const { isAnimate, count } = useGlobalContext();
   const { isMobile } = useIsMobile();
   return (
-    <div className="pt-4 relative z-10 flex justify-center items-center md:h-[600px] h-[650px]">
+    <div id="hero" className="pt-4 relative z-10 flex justify-center items-center md:h-[600px] h-[650px]">
       <motion.div
         initial={{
           width: isMobile ? "35%" : "15%",
@@ -125,7 +125,7 @@ const SearchFilter = ({ isAnimate }: { isAnimate: boolean }) => {
       transition={{ duration: 0.4, delay: 0.3 }}
       className={` ${
         isAnimate ? "px-[20px] md:px-[40px]" : "px-0"
-      } bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] rounded-[20px] md:max-h-[120px] md:w-full   ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center`}
+      } bg-white z-20 relative justify-between w-full py-[20px] md:py-[26px] rounded-[20px] max-h-[170px] lg:max-h-[120px] md:w-full   ease-in-out gap-4 transition-all duration-300 grid grid-cols-2 md:flex flex-wrap  items-center`}
     >
       {/* Check-in Date Selector */}
       <motion.div

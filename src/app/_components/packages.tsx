@@ -91,7 +91,7 @@ const PackageCard = ({
 }) => {
   return (
     <div className="p-[16px] md:p-[20px] md:flex-row flex-col relative rounded-[30px] bg-[#f6fff8] border border-[000000]/20  flex gap-[20px] md:gap-[30px] w-full">
-      <div className="w-full md:w-[419px] h-[200px] md:h-[251px] rounded-[20px] overflow-hidden">
+      <div className="w-full md:w-[350px] lg:w-[419px] h-[200px] md:h-[251px] rounded-[20px] overflow-hidden">
         <Image
           src={image}
           alt=""
@@ -134,7 +134,7 @@ const PackageCard = ({
           </Button>
         </div>
       </div>
-      <p className="px-[20px] rounded-full py-2 bg-primary text-white text-sm absolute top-2 right-2">
+      <p className="px-[20px] rounded-full py-2 bg-primary text-white text-xs absolute top-2 right-2">
         {" "}
         Limited Time Offer
       </p>

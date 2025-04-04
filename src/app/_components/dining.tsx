@@ -41,10 +41,7 @@ const Dining = () => {
             </span>
           ))}
         </div>
-        {/* <h3 className="font-bold text-primary">
-          A Culinary Journey Like <br className="md:block hidden" />
-          No Other
-        </h3> */}
+       
         <p className="text-xl font-medium  text-[#303030]">
           Indulge in a world of exquisite flavors, from{" "}
           <br className="md:block hidden" /> gourmet international dishes to

@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${space_Grotesk.className} ${inter.variable} max-w-[1400px] mx-auto ease-in-out transition-all duration-300 px-2 md:px-20 pb-4 pt-0 md:py-4 antialiased`}
+        className={` ${space_Grotesk.className} ${inter.variable} max-w-[1400px] mx-auto ease-in-out transition-all duration-300 px-2 md:px-10 lg:px-20 pb-4 pt-0 md:py-4 antialiased`}
       >
         <GlobalProvider>
           <NavBar />

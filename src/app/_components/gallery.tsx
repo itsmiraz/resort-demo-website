@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const Gallery = () => {
   return (
-    <div className="py-[50px] px-4 md:px-0">
+    <div id="gallery" className="py-[50px] px-4 md:px-0">
       <h2 className="text-4xl text-center font-bold text-primary">Gallery</h2>
 
       <div className="grid-cols-2 md:grid-cols-3 pt-[30px] grid gap-[16px] md:gap-[32px]">
@@ -45,9 +45,15 @@ interface ShinyImageProps {
 
 const ShinyImage: React.FC<ShinyImageProps> = ({ src, alt, className }) => {
   return (
-    <div className={`relative  rounded-[10px] md:rounded-[20px] cursor-pointer overflow-hidden group ${className}`}>
+    <div
+      className={`relative  rounded-[10px] md:rounded-[20px] cursor-pointer overflow-hidden group ${className}`}
+    >
       {/* Image */}
-      <Image className="w-full hover:scale-110 transition-all ease-in-out duration-300" src={src} alt={alt} />
+      <Image
+        className="w-full hover:scale-110 transition-all ease-in-out duration-300"
+        src={src}
+        alt={alt}
+      />
 
       {/* Shine Effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 transform scale-150 skew-x-[-20deg] group-hover:translate-x-full" />

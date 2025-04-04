@@ -11,19 +11,19 @@ const NavBar = () => {
   const navLinks = [
     {
       label: "Home",
-      link: "/",
+      link: "#hero",
     },
     {
       label: "About",
-      link: "/",
+      link: "#about",
     },
     {
       label: "Rooms",
-      link: "/",
+      link: "#rooms",
     },
     {
       label: "Gallery",
-      link: "/",
+      link: "#gallery",
     },
   ];
   const menuVariants = {

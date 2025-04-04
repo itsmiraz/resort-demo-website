@@ -45,7 +45,7 @@ const Facilities = () => {
       </h2>
 
       <div className="grid place-items-center grid-cols-9 pt-[30px] gap-10">
-        <div className="col-span-9 md:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+        <div className="col-span-9 md:col-span-5 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8">
           {amenities_data.map((item, i) => (
             <div key={i}>
               <div className="w-[80px]">{item.icon}</div>
@@ -60,7 +60,7 @@ const Facilities = () => {
         <button aria-label='play-button' className="absolute z-20 cursor-pointer top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4">
           <PlayIcon />
         </button>
-          <Image className="relative" src={FacilityImage} alt="" />
+          <Image className="relative top-5 md:sticky lg:relative " src={FacilityImage} alt="" />
         </div>
       </div>
     </div>

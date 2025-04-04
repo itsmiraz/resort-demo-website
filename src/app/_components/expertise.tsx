@@ -22,7 +22,7 @@ const Expertise = () => {
   const words = text.split(" ").map((word, i) => ({ id: i, value: word }));
 
   return (
-    <div className="py-20   md:px-32 px-4 text-center">
+    <div className="py-20   md:px-20 lg:px-32 px-4 text-center">
       <div
         ref={ref}
         className="text-[28px] md:text-[38px] gap-x-1 overflow-hidden text-primary font-bold inline-flex flex-wrap  justify-center"

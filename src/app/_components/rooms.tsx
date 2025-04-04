@@ -59,13 +59,13 @@ const Rooms = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <div ref={ref} id="rooms" className="py-[50px] px-4">
+    <div ref={ref} id="rooms" className="py-[50px] md:px-0 px-4 lg:px-4">
       <div>
         <h2 className="text-4xl text-center font-bold text-primary">
           Our Rooms
         </h2>
 
-        <div className="pt-[30px] flex-wrap flex justify-between gap-10">
+        <div className="pt-[30px] flex-wrap flex  justify-center  gap-6 lg:gap-10">
           {Room_data.map((item, i) => (
             <RoomCard
               i={i}
@@ -117,7 +117,7 @@ const RoomCard = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.4, delay: i * 0.2 }}
-      className="w-[375px] bg-[#f6fff8] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 "
+      className="w-full md:w-[320px]  lg:w-[375px] bg-[#f6fff8] border border-[#000000]/20 space-y-[17px] rounded-2xl p-5 "
     >
       <div className="h-[200px] group rounded-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r z-30 from-transparent via-white/40 to-transparent scale-150 rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-500 ease-in-out"></div>
