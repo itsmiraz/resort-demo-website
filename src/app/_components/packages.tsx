@@ -37,7 +37,7 @@ const Packages = () => {
   ];
 
   return (
-    <div className="bg-white py-[50px] rounded-[40px] ">
+    <div className="bg-white py-[50px] md:px-0 px-4 rounded-[40px] ">
       <div className="text-center space-y-[10px]">
         <h1 className="text-[42px] leading-[110%] md:text-[42px]  overflow-hidden text-primary font-bold inline-flex">
           Special Packages
@@ -134,7 +134,7 @@ const PackageCard = ({
           </Button>
         </div>
       </div>
-      <p className="px-[20px] rounded-full py-2 bg-primary text-white text-xs absolute top-2 right-2">
+      <p className="px-[20px] rounded-full py-2 bg-emerald-500 text-white text-xs absolute top-2 right-2">
         {" "}
         Limited Time Offer
       </p>

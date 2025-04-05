@@ -235,7 +235,7 @@ const DateSelector = ({
         <PopoverTrigger asChild>
           <button
             type="button"
-            className="cursor-pointer whitespace-nowrap text-sm md:text-lg font-medium text-primary border-[#06402A] flex gap-x-[14px] border-b md:border-b-2"
+            className="cursor-pointer whitespace-nowrap text-sm md:text-lg font-medium text-primary border-[#06402A] flex gap-x-[6px] border-b md:border-b-2"
           >
             {date ? format(date, "PPP") : <span>Pick a date</span>}
             <ChevronDown />
