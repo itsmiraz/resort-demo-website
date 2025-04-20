@@ -11,7 +11,6 @@ import Testimonials from "./_components/testimonials";
 import Contact from "./_components/contact";
 import { useGlobalContext } from "@/components/context/globalContext";
 import Packages from "./_components/packages";
-
 const Home = () => {
   const { isAnimate } = useGlobalContext();
 

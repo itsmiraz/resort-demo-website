@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
 .body {
-  scroll-behavior: "smooth" !important;
+  /* scroll-behavior: "smooth" !important; */
   transition: opacity 0.3s ease-in-out, transform 0.5s ease;
 }
 html {

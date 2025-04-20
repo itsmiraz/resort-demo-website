@@ -15,56 +15,54 @@ const space_Grotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Luxury Resort Getaways | Resdium Digital',
+  title: "Luxury Resort Getaways | Resdium Digital",
   description:
-    'Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.',
+    "Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.",
   keywords: [
-    'luxury resort',
-    'beach resort',
-    'tropical getaway',
-    'resort website design',
-    'Resdium Digital',
-    'resort web development',
-    'relaxation vacation',
-    'luxury travel',
-    'resort booking platform',
-    'premium holiday destination',
-    'resort UX/UI design',
-    'modern travel website',
-    'digital resort experiences',
-    'vacation booking system',
+    "luxury resort",
+    "beach resort",
+    "tropical getaway",
+    "resort website design",
+    "Resdium Digital",
+    "resort web development",
+    "relaxation vacation",
+    "luxury travel",
+    "resort booking platform",
+    "premium holiday destination",
+    "resort UX/UI design",
+    "modern travel website",
+    "digital resort experiences",
+    "vacation booking system",
   ],
-  metadataBase: new URL('https://resort-demo-website-by-resdium.vercel.app/'),
+  metadataBase: new URL("https://resort-demo-website-by-resdium.vercel.app/"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    title: 'Luxury Resort Getaways | Resdium Digital',
+    title: "Luxury Resort Getaways | Resdium Digital",
     description:
-      'Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.',
-    url: '/',
-    siteName: 'Resdium Digital',
+      "Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.",
+    url: "/",
+    siteName: "Resdium Digital",
     images: [
       {
-        url: 'https://ibb.co.com/svJGp4Vx', // Replace with a real resort preview if available
+        url: "https://ibb.co.com/svJGp4Vx", // Replace with a real resort preview if available
         width: 1200,
         height: 630,
-        alt: 'Luxury Resort by Resdium Digital',
+        alt: "Luxury Resort by Resdium Digital",
       },
     ],
-    type: 'website',
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Luxury Resort Getaways | Resdium Digital',
+    card: "summary_large_image",
+    title: "Luxury Resort Getaways | Resdium Digital",
     description:
-      'Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.',
-    images: [
-      'https://ibb.co.com/svJGp4Vx',
-    ],
+      "Escape to paradise with our luxury resort experiences, designed by Resdium Digital. Discover breathtaking views, relaxing retreats, and unforgettable moments.",
+    images: ["https://ibb.co.com/svJGp4Vx"],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 };
 
@@ -80,7 +78,7 @@ export default function RootLayout({
       >
         <GlobalProvider>
           <NavBar />
-          <div className="">{children}</div>
+            <div className="">{children}</div>
           <Footer />
         </GlobalProvider>
       </body>

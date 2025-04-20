@@ -10,8 +10,11 @@ import GuestsIcon from "@/assets/icons/guests.svg";
 import { Button } from "@/components/ui/button";
 import Modal from "@/components/ui/modal";
 import BookingModal from "@/components/ui/bookingModal";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 const Packages = () => {
   const [open, setOpen] = useState(false);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   const packagesData = [
     {
@@ -37,7 +40,7 @@ const Packages = () => {
   ];
 
   return (
-    <div className="bg-white py-[50px] md:px-0 px-4 rounded-[40px] ">
+    <div ref={ref} className="bg-white py-[50px] md:px-0 px-4 rounded-[40px] ">
       <div className="text-center space-y-[10px]">
         <h1 className="text-[42px] leading-[110%] md:text-[42px]  overflow-hidden text-primary font-bold inline-flex">
           Special Packages
@@ -50,7 +53,7 @@ const Packages = () => {
         {packagesData.map((item, i) => (
           <PackageCard
             setOpen={setOpen}
-            inView={true}
+            inView={inView}
             i={i}
             key={i}
             {...item}
@@ -73,8 +76,10 @@ const PackageCard = ({
   price,
   offerPrice,
   beds,
+  inView,
   guests,
   setOpen,
+  i,
   bathrooms,
 }: {
   image: any;
@@ -90,7 +95,12 @@ const PackageCard = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="p-[16px] md:p-[20px] md:flex-row flex-col relative rounded-[30px] bg-[#f6fff8] border border-[000000]/20  flex gap-[20px] md:gap-[30px] w-full">
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -50 }}
+      transition={{ duration: 0.4, delay: i * 0.3 }}
+      className="p-[16px] md:p-[20px] md:flex-row flex-col relative rounded-[30px] bg-[#f6fff8] border border-[000000]/20  flex gap-[20px] md:gap-[30px] w-full"
+    >
       <div className="w-full md:w-[350px] lg:w-[419px] h-[200px] md:h-[251px] rounded-[20px] overflow-hidden">
         <Image
           src={image}
@@ -138,6 +148,6 @@ const PackageCard = ({
         {" "}
         Limited Time Offer
       </p>
-    </div>
+    </motion.div>
   );
 };
